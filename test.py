@@ -19,8 +19,6 @@ if __name__ == '__main__':
     data_name = data_base_name.split('_')[0]
 
     data_base = torch.load('results/{}'.format(data_base_name), map_location=torch.device('cpu'))
-    print(data_base)
-    #iprint(data_base['test_images'])
 
     if query_img_name not in data_base['test_images']:
         raise FileNotFoundError('{} not found'.format(query_img_name))
@@ -38,8 +36,8 @@ if __name__ == '__main__':
         dist_matrix[query_index] = float('inf')
     idx = dist_matrix.topk(k=retrieval_num, dim=-1, largest=False)[1]
     result_dir = os.path.splitext(os.path.basename(opt.data_base))[0]
-    print("result_dir: ", result_dir)
     result_path = 'results/{}/{}'.format(result_dir, query_img_name.split('/')[-1].split('.')[0])
+    print("Save test result in result path: ", result_path)
     if os.path.exists(result_path):
         shutil.rmtree(result_path)
     os.makedirs(result_path, exist_ok=True)
