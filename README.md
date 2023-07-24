@@ -22,7 +22,7 @@ cp <PATH/TO/DIR>/sop_uncropped_resnet50_SG_1536_0.1_0.5_0.1_128_model.pth result
 cp <PATH/TO/DIR>/sop_uncropped_resnet50_SG_1536_0.1_0.5_0.1_128_data_base.pth results
 ```
 
-### Verify Pytorch FP32 Model Image Retrivial Results
+### Verify Pytorch FP32 Model Image Retrieval Results
 ```bash 
 python test.py --query_img_name /home/data/sop/uncropped/281602463529_2.JPG \
                --data_base sop_uncropped_resnet50_SG_1536_0.1_0.5_0.1_128_data_base.pth  \
@@ -35,14 +35,14 @@ mkdir -p models
 python run_quantize.py
 ```
 
-### Verify OpenVINO FP32 Model Image Retrivial Results
+### Verify OpenVINO FP32 Model Image Retrieval Results
 ```
 python test.py --query_img_name /home/data/sop/uncropped/281602463529_2.JPG \
                --data_base ov_fp32_model_data_base.pth  \
                --retrieval_num 8
 ```
 
-### Verify OpenVINO INT8 Model Image Retrivial Results
+### Verify OpenVINO INT8 Model Image Retrieval Results
 ```
 python test.py --query_img_name /home/data/sop/uncropped/281602463529_2.JPG \
                --data_base ov_int8_model_data_base.pth  \
