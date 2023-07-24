@@ -1,13 +1,9 @@
 import argparse
-# import nncf.torch # Important - must be imported before any other external package that depends on torch
-# from nncf import NNCFConfig
 import numpy as np
 import os
 from PIL import Image
 from tqdm import tqdm
 import logging
-#from CGD import model
-#from CGD.utils import recall,ImageReader
 import model
 from utils import recall,ImageReader
 import torch
@@ -16,8 +12,7 @@ import openvino.runtime as ov
 from openvino.runtime import compile_model
 from openvino.tools.mo import convert_model
 
-#data_path = "/home/openvino/datasets/"
-data_path = "./data"
+data_path = "/home/data"
 data_name = "sop"
 test_data_set = ImageReader(data_path, data_name, 'test', 'uncropped')
 test_data_loader = DataLoader(test_data_set, batch_size=1, shuffle=False, num_workers=8)
@@ -174,6 +169,7 @@ def quantize_ov_model(fp32_xml_path: str, int8_xml_path: str):
 if __name__ == '__main__':
     # Export FP32 model
     fp32_xml_path = "models/ov_fp32_model.xml"
+    
     export_to_openvino_fp32_model(fp32_xml_path)
     print("Save OpenVINO FP32 model: ", fp32_xml_path)
 
@@ -181,7 +177,6 @@ if __name__ == '__main__':
     print('Validate OpenVINO FP32 model:')
     validate_ov_model(fp32_xml_path)
 
-    
     # Quantize model
     int8_xml_path = "models/ov_int8_model.xml"
     print("Quantize FP32 model")

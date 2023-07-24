@@ -1,3 +1,4 @@
-openvino
-openvino-dev[pytorch,onnx]
-nncf
+openvino==2023.0.1
+openvino-dev[pytorch,onnx]==2023.0.1
+nncf==2.5.0
+torch==2.0.1
