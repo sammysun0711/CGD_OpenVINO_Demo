@@ -28,12 +28,12 @@ python test.py --query_img_name /home/data/sop/uncropped/281602463529_2.JPG \
                --data_base sop_uncropped_resnet50_SG_1536_0.1_0.5_0.1_128_data_base.pth  \
                --retrieval_num 8
 ```
-
 ### Run NNCF PTQ for quantization
 ```
 mkdir -p models
 python run_quantize.py
 ```
+Generated FP32 ONNX model and FP32/INT8 OpenVINO™ model will be saved in the `models` directory. Besides, we also store evaluation results of OpenVINO™ FP32/INT8 model as a Database in the `results` directory respectively. The database can be directly used for image retrieval via input query image.
 
 ### Verify OpenVINO FP32 Model Image Retrivial Results
 ```
@@ -48,3 +48,7 @@ python test.py --query_img_name /home/data/sop/uncropped/281602463529_2.JPG \
                --data_base ov_int8_model_data_base.pth  \
                --retrieval_num 8
 ```
+
+![Pytorch FP32 Model Retrieval Results](results/pytorch_retrieval_result.png)
+![Pytorch FP32 Model and OpenVINO FP32/INT8 Retrieval Results](pytorch_openvino_retrieval_result.png)
+
