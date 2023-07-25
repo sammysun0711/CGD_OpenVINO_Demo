@@ -28,6 +28,10 @@ python test.py --query_img_name /home/data/sop/uncropped/281602463529_2.JPG \
                --data_base sop_uncropped_resnet50_SG_1536_0.1_0.5_0.1_128_data_base.pth  \
                --retrieval_num 8
 ```
+Pytorch FP32 Model Retrieval Results
+![Pytorch FP32 Model Retrieval Results](results/pytorch_retrieval_result.png)
+The leftmost query image serves as input to retrieve the 8 most similar image from the database, where the green bounding box means that the predicted class match the query image class, while the red bounding box means a mismatch of image class. Therefore, the retrieved image can be further filtered out with class information.
+
 ### Run NNCF PTQ for quantization
 ```
 mkdir -p models
@@ -48,7 +52,6 @@ python test.py --query_img_name /home/data/sop/uncropped/281602463529_2.JPG \
                --data_base ov_int8_model_data_base.pth  \
                --retrieval_num 8
 ```
-
-![Pytorch FP32 Model Retrieval Results](results/pytorch_retrieval_result.png)
+Pytorch FP32 Model and OpenVINO FP32/INT8 Retrieval Results with Same Query Image
 ![Pytorch FP32 Model and OpenVINO FP32/INT8 Retrieval Results](results/pytorch_openvino_retrieval_result.png)
-
+The Pytorch and OpenVINO™ FP32 retrieved images are the same. Although the 7th image of OpenVINO™ INT8 model results is not matched with FP32 model, it can be further filtered out with predicted class information.
