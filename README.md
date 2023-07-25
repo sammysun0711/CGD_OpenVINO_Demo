@@ -50,5 +50,5 @@ python test.py --query_img_name /home/data/sop/uncropped/281602463529_2.JPG \
 ```
 
 ![Pytorch FP32 Model Retrieval Results](results/pytorch_retrieval_result.png)
-![Pytorch FP32 Model and OpenVINO FP32/INT8 Retrieval Results](pytorch_openvino_retrieval_result.png)
+![Pytorch FP32 Model and OpenVINO FP32/INT8 Retrieval Results](results/pytorch_openvino_retrieval_result.png)
 
