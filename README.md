@@ -2,6 +2,7 @@
 Efficient Inference and Quantization of CGD for Image Retrieval with OpenVINO
 
 This demo is base on [CGD](https://github.com/leftthomas/CGD/tree/master): A PyTorch implementation of CGD based on the paper [Combination of Multiple Global Descriptors for Image Retrieval](https://arxiv.org/abs/1903.10663v3).
+
 ![CGD Model Overview](results/cgd_model_overview.png)
 
 ### Setup Environment
